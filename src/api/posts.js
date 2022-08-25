@@ -6,8 +6,8 @@ import axios from 'axios';
 //   return posts.find(item => item.id === numberId);
 // }
 
-export function getPosts() {
-  return axios.get('http://localhost:3001/posts');
+export function getPosts(params) {
+  return axios.get('http://localhost:3001/posts', { params });
 }
 
 export function getPostById(id) {
