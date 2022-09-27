@@ -3,6 +3,7 @@
     <h1>home view</h1>
     <p>{{ $route.name }}</p>
     <button class="btn btn-primary" @click="goAboutPage">상세페이지로</button>
+    <hr class="my-4" />
   </div>
 </template>
 <script setup>

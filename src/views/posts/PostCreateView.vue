@@ -3,37 +3,25 @@
     <h2>게시글 등록</h2>
     <hr class="my-4" />
 
-    <form @submit.prevent="save">
-      <div class="mb-3">
-        <label for="exampleFormControlInput1" class="form-label">제목</label>
-        <input
-          type="text"
-          v-model="form.title"
-          class="form-control"
-          id="exampleFormControlInput1"
-          placeholder="name@example.com"
-        />
-      </div>
-      <div class="mb-3">
-        <label for="exampleFormControlTextarea1" class="form-label">내용</label>
-        <textarea
-          v-model="form.content"
-          class="form-control"
-          id="exampleFormControlTextarea1"
-          rows="3"
-        ></textarea>
-      </div>
-      <div class="pt-4">
-        <button class="btn btn-outline-dark me-2">목록</button>
-        <button type="submit" class="btn btn-primary">저장</button>
-      </div>
-    </form>
+    <post-form
+      v-model:title="form.title"
+      v-model:content="form.content"
+      @submit.prevent="save"
+    >
+      <template #actions>
+        <div class="pt-4">
+          <button class="btn btn-outline-dark me-2">목록</button>
+          <button type="submit" class="btn btn-primary">저장</button>
+        </div>
+      </template>
+    </post-form>
   </div>
 </template>
 <script setup>
-import { useRouter } from 'vue-router';
 import { ref } from 'vue';
+import { useRouter } from 'vue-router';
 import { createPost } from '@/api/posts';
+import postForm from '@/components/posts/postForm.vue';
 
 const router = useRouter();
 
