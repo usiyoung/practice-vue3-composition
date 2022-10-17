@@ -2,8 +2,18 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { createApp } from 'vue';
 import router from './router';
 import App from './App.vue';
-
-createApp(App).use(router).mount('#app');
+// import objPlugins from './plugins/obj';
+// import funcPlugins from './plugins/func';
+import person from './plugins/person';
+import globalComponents from './plugins/global-components';
+const app = createApp(App);
+app
+  .use(router)
+  .use(globalComponents)
+  // .use(objPlugins, { name: '나영' })
+  // .use(funcPlugins)
+  .use(person, { age: 13 })
+  .mount('#app');
 
 import 'bootstrap/dist/js/bootstrap.js';
 

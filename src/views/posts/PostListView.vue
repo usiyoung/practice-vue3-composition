@@ -14,21 +14,21 @@
       </div>
     </div>
 
-    <Pagination
+    <app-pagination
       :currentPage="params._page"
       :pageCount="pageCount"
       @page="page => (params._page = page)"
       class="mt-5"
       aria-label="Page navigation example"
     >
-    </Pagination>
+    </app-pagination>
   </div>
 </template>
 
 <script setup>
 import PostFilter from '@/components/posts/postFilter.vue';
 import PostItem from '@/components/posts/postItem.vue';
-import Pagination from '@/components/AppPagination.vue';
+
 import { getPosts } from '@/api/posts';
 import { ref, computed, watchEffect } from 'vue';
 import { useRouter } from 'vue-router';

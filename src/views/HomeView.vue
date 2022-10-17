@@ -6,12 +6,26 @@
     <hr class="my-4" />
   </div>
 </template>
+
+<script>
+export default {
+  created() {
+    // console.log(this.$person.name);
+    // this.$person.say();
+  },
+};
+</script>
+
 <script setup>
+import { inject } from 'vue';
 import { useRouter } from 'vue-router';
 const router = useRouter();
 
 const goAboutPage = () => {
   router.push('/about');
 };
+
+const person = inject('person');
+console.log(person.age);
 </script>
 <style lang=""></style>
